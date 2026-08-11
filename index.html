@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mental Health Prediction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="top">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26">
+          <path d="M2 17 L9 17 L12 9 L17 24 L21 12 L24 17 L30 17" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">Mental Health Prediction</span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#top">Home</a>
+      <a href="#predict">Prediction</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Machine Learning Model</p>
+      <h1>Understand your<br><em>mental health score.</em></h1>
+      <p class="hero-sub">
+        This project uses a trained machine learning model to estimate a mental
+        health score from your academic routine, lifestyle habits, stress level,
+        and social media usage. Answer a short set of questions and the model
+        will return a predicted score based on patterns learned from its training data.
+      </p>
+      <div class="hero-actions">
+        <a href="#predict" class="btn btn-primary" id="heroCta">Check My Score</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="pulse-card">
+        <svg class="pulse-line" viewBox="0 0 320 120" preserveAspectRatio="none">
+          <path id="pulsePath" d="M0,60 C40,60 40,20 80,20 C120,20 120,100 160,100 C200,100 200,40 240,40 C270,40 280,60 320,60" fill="none" stroke="url(#pulseGrad)" stroke-width="3" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="pulseGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="var(--sage)"/>
+              <stop offset="100%" stop-color="var(--violet)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <p class="pulse-label">Machine learning&nbsp;based prediction</p>
+        <p class="pulse-caption">Trained on lifestyle &amp; usage data</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PREDICTION FORM ================= -->
+<section class="predict-section" id="predict">
+  <div class="section-inner">
+    <p class="eyebrow center">Prediction</p>
+    <h2 class="section-title center">Student Information</h2>
+    <p class="section-sub center">
+      Fill in your details below to generate a prediction.
+    </p>
+
+    <div class="form-card">
+
+      <form id="predictForm" novalidate>
+
+        <!-- SECTION B1 — Profile -->
+        <div class="form-section">
+          <div class="section-heading">
+            <span class="section-badge">B1</span>
+            <h3>Profile</h3>
+          </div>
+
+          <div class="field-grid cols-3">
+            <div class="field">
+              <label for="age">Age</label>
+              <input type="number" id="age" name="age" min="10" max="100" step="1" placeholder="22" required />
+              <p class="field-hint">10&ndash;100</p>
+              <p class="field-error" id="err-age"></p>
+            </div>
+
+            <div class="field">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+              <p class="field-error" id="err-gender"></p>
+            </div>
+
+            <div class="field">
+              <label for="country">Country</label>
+              <select id="country" name="country" required>
+                <option value="" disabled selected>Select</option>
+                <option>India</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>UK</option>
+                <option>Germany</option>
+                <option>Mexico</option>
+                <option>Turkey</option>
+                <option>France</option>
+                <option>Other</option>
+              </select>
+              <p class="field-error" id="err-country"></p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION B2 — Academic & Digital Habits -->
+        <div class="form-section">
+          <div class="section-heading">
+            <span class="section-badge">B2</span>
+            <h3>Academic &amp; Digital Habits</h3>
+          </div>
+
+          <div class="field-grid cols-2">
+            <div class="field">
+              <label for="academic_level">Academic level</label>
+              <select id="academic_level" name="academic_level" required>
+                <option value="" disabled selected>Select</option>
+                <option>Undergraduate</option>
+                <option>Graduate</option>
+                <option>High School</option>
+              </select>
+              <p class="field-error" id="err-academic_level"></p>
+            </div>
+
+            <div class="field">
+              <label for="most_used_platform">Most-used platform</label>
+              <select id="most_used_platform" name="most_used_platform" required>
+                <option value="" disabled selected>Select</option>
+                <option>Facebook</option>
+                <option>LinkedIn</option>
+                <option>Instagram</option>
+                <option>Snapchat</option>
+                <option>Twitter</option>
+                <option>YouTube</option>
+                <option>TikTok</option>
+                <option>LINE</option>
+                <option>KakaoTalk</option>
+                <option>VKontakte</option>
+                <option>WhatsApp</option>
+                <option>WeChat</option>
+              </select>
+              <p class="field-error" id="err-most_used_platform"></p>
+            </div>
+
+            <div class="field">
+              <label for="purpose_of_use">Primary purpose</label>
+              <select id="purpose_of_use" name="purpose_of_use" required>
+                <option value="" disabled selected>Select</option>
+                <option>Networking</option>
+                <option>Education</option>
+                <option>Entertainment</option>
+                <option>News</option>
+              </select>
+              <p class="field-error" id="err-purpose_of_use"></p>
+            </div>
+
+            <div class="field">
+              <label for="avg_daily_usage_hours">Avg. daily screen time</label>
+              <div class="field-suffix-wrap">
+                <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.5" placeholder="2" required />
+                <span class="field-suffix">hrs</span>
+              </div>
+              <p class="field-error" id="err-avg_daily_usage_hours"></p>
+            </div>
+
+            <div class="field">
+              <label for="daily_unlocks">Daily phone unlocks</label>
+              <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" placeholder="50" required />
+              <p class="field-error" id="err-daily_unlocks"></p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- SECTION B3 — Lifestyle & Stress -->
+        <div class="form-section">
+          <div class="section-heading">
+            <span class="section-badge">B3</span>
+            <h3>Lifestyle &amp; Stress</h3>
+          </div>
+
+          <div class="field-grid cols-3">
+            <div class="field">
+              <label for="study_hours">Study hours / day</label>
+              <div class="field-suffix-wrap">
+                <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.5" placeholder="2" required />
+                <span class="field-suffix">hrs</span>
+              </div>
+              <p class="field-error" id="err-study_hours"></p>
+            </div>
+
+            <div class="field">
+              <label for="physical_activity_hours">Physical activity / day</label>
+              <div class="field-suffix-wrap">
+                <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="24" step="0.5" placeholder="0" required />
+                <span class="field-suffix">hrs</span>
+              </div>
+              <p class="field-error" id="err-physical_activity_hours"></p>
+            </div>
+
+            <div class="field">
+              <label for="sleep_hours_per_night">Sleep / night</label>
+              <div class="field-suffix-wrap">
+                <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.5" placeholder="6" required />
+                <span class="field-suffix">hrs</span>
+              </div>
+              <p class="field-error" id="err-sleep_hours_per_night"></p>
+            </div>
+          </div>
+
+          <div class="field field-wide">
+            <label>Perceived stress level</label>
+            <div class="segmented" id="stressSegmented" role="radiogroup" aria-label="Perceived stress level">
+              <button type="button" class="segmented-option" data-value="Low" role="radio" aria-checked="false">Low</button>
+              <button type="button" class="segmented-option" data-value="Medium" role="radio" aria-checked="false">Medium</button>
+              <button type="button" class="segmented-option" data-value="High" role="radio" aria-checked="false">High</button>
+              <button type="button" class="segmented-option" data-value="Very High" role="radio" aria-checked="false">Very High</button>
+            </div>
+            <input type="hidden" id="stress_level" name="stress_level" required />
+            <p class="field-error" id="err-stress_level"></p>
+          </div>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            <span class="btn-label">Read my signal</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- LOADING STATE -->
+      <div class="loading-state" id="loadingState" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Analyzing your information&hellip;</p>
+      </div>
+
+      <!-- ERROR STATE -->
+      <div class="error-card" id="errorCard" hidden role="alert">
+        <p class="error-title">Something went wrong</p>
+        <p class="error-message" id="errorMessage"></p>
+        <button type="button" class="btn btn-ghost" id="errorDismiss">Try Again</button>
+      </div>
+
+      <!-- RESULT -->
+      <div class="result-card" id="resultCard" hidden>
+        <p class="eyebrow center">Prediction Result</p>
+        <h3 class="result-title">Your Mental Health Score</h3>
+
+        <div class="result-visual">
+          <svg class="gauge" viewBox="0 0 220 130" aria-hidden="true">
+            <path class="gauge-track" d="M20,120 A90,90 0 0 1 200,120" />
+            <path class="gauge-fill" id="gaugeFill" d="M20,120 A90,90 0 0 1 200,120" />
+          </svg>
+          <div class="gauge-value"><span id="scoreValue">0</span><span class="gauge-scale">/10</span></div>
+        </div>
+
+        <p class="result-tag" id="resultTag">Model-based interpretation</p>
+        <p class="result-note" id="resultNote"></p>
+
+        <p class="disclaimer">
+          This is a machine-learning prediction based on the information you provided,
+          not a medical diagnosis. If you have concerns about your wellbeing, please
+          speak with a qualified professional.
+        </p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="predictAgainBtn">Predict Again</button>
+          <button type="button" class="btn btn-primary" id="backToFormBtn">Back to Form</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>Mental Health Prediction &mdash; a machine learning project.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
