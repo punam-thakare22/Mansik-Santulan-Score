@@ -9,13 +9,12 @@
    --------------------------------------------------------- */
 
 // Change this single value if the FastAPI backend runs elsewhere.
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://mansik-santulan-score-4912.onrender.com";
 
 // Configurable score interpretation. Adjust freely once the
 // real meaning of the model's output scale is known.
 // "max" defines the upper bound used to fill the gauge (0–max).
 const SCORE_SCALE_MAX = 10;
-
 const SCORE_RANGES = [
   { upTo: 3.5,  label: "Lower predicted score",  color: "#C97B63",
     note: "The model's prediction for your inputs sits toward the lower end of its scale." },
